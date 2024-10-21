@@ -1,0 +1,15 @@
+// Version: 1.0.0
+type Topic =
+  {
+    id : Nat32;
+    objectives : Text;
+    progress : Nat;
+    shared_with : [Text];
+    title : Text
+  };
+type User =
+  {badges : [Text]; email : Text; id : Nat32; points : Nat; username : Text};
+actor {
+  stable var topics : [Topic];
+  stable var users : [User]
+};

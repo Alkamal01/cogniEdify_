@@ -1,0 +1,28 @@
+type User = 
+ record {
+   badges: vec text;
+   email: text;
+   id: nat32;
+   points: nat;
+   username: text;
+ };
+type Topic = 
+ record {
+   id: nat32;
+   objectives: text;
+   progress: nat;
+   shared_with: vec text;
+   title: text;
+ };
+type LeaderboardEntry = 
+ record {
+   points: nat;
+   username: text;
+ };
+service : {
+  createTopic: (nat32, text, text) -> (text);
+  createUser: (nat32, text, text) -> (text);
+  getLeaderboard: () -> (vec LeaderboardEntry);
+  getTopic: (nat32) -> (opt Topic);
+  getUser: (nat32) -> (opt User);
+}
